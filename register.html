@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人注册</title>
+    <!--   引入favicon图标 -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!--    引入初始化文件-->
+    <link rel="stylesheet" href="css/base.css">
+    <!--    引入注册文件-->
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class="w">
+        <!-- 头部模块   -->
+        <header>
+            <div class="register_logo">
+                <img src="img/logo.png" alt="">
+            </div>
+        </header>
+        <div class="registerarea">
+            <h3>
+                <a href="#">注册新用户</a>
+                <a href="#">我有账号，<i class="style_red">去登录</i></a>
+            </h3>
+            <div class="reg_form">
+                <form action="">
+                    <ul>
+                        <li>
+                            <label for="tel">手机号：</label>
+                            <input type="text" name="tel" id="tel" value="" placeholder="请输入手机号码" class="inp">
+                            <span class="errors_tips" ><i><img src="img/error.png" alt=""></i>手机号码格式不正确，请重新输入</span>
+                            <span class="success_tips"><i><img src="img/success.png" alt=""></i></span>
+                        </li>
+                        <li>
+                            <label for="num">短信验证码：</label>
+                            <input type="text" name="num" id="num" value="" placeholder="请输入验证码" class="inp">
+                            <span class="errors_tips"><i><img src="img/error.png" alt=""></i>短信验证码格式不正确，请重新输入</span>
+                            <span class="success_tips"><i><img src="img/success.png" alt=""></i></span>
+                        </li>
+                        <li>
+                            <label for="pwd1">登录密码：</label>
+                            <input type="password" name="pwd" id="pwd1" value="" placeholder="请输入密码" class="inp">
+                            <span class="errors_tips"><i><img src="img/error.png" alt=""></i>密码格式不正确，请重新输入</span>
+                            <span class="success_tips"><i><img src="img/success.png" alt=""></i></span>
+                        </li>
+                        <li>
+                            <label for="level">安全程度：</label>
+                            <meter id="level" max="3" min="0" low="1" high="2"></meter>
+                        </li>
+                        <li>
+                            <label for="pwd2">确认密码：</label>
+                            <input type="password" name="pwd" id="pwd2" value="" placeholder="请输入密码" class="inp">
+                            <span class="errors_tips errors_pwd2"><i><img src="img/error.png" alt=""></i>密码不一致，请重新输入</span>
+                            <span class="success_tips success_pwd2"><i><img src="img/success.png" alt=""></i></span>
+                        </li>
+                        <li class="agree">
+                            <input type="checkbox">同意并注册《品优购协议》
+                        </li>
+                        <li class="submit">
+                            <input type="submit" value="完成注册">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="w">
+                <div class="mod_copyright">
+                    <div class="links">
+                        <a href="">关于我们</a>  |     联系我们    |    联系客服       |   商家入驻    |    营销中心   |   手机品优购
+                        | 联系我们  |     友情链接    |    销售联盟       |   商家入驻    |    品优购社区   |   品优购公益 |
+                        English Site  |  Contact U
+                    </div>
+                    <div class="copyright">
+                        地址：北京市昌平区建材城城西路金雅办公楼一层  邮编：100096 电话
+                        ：400-618-4000 传真：010-82935100 邮箱：5151894981.cn<br>
+                        京TCP备0515111号京公安网备515181859988
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+<script>
+    var pwd1 = document.getElementById("pwd1");
+    var pwd2 = document.getElementById("pwd2");
+    var level = document.getElementById('level')
+    var tel = document.getElementById('tel')
+    var num = document.getElementById('num')
+    window.onload = function (){
+        //手机号验证
+        tel.addEventListener('blur',function (){
+            let  pattern = /^1\d{10}$/;
+            if(!pattern.test(this.value)){
+                document.getElementsByClassName('errors_tips')[0].style.display = 'inline-block';
+            }
+            else{
+                document.getElementsByClassName('success_tips')[0].style.display = 'inline-block';
+            }
+        },false);
+        tel.addEventListener('focus',function (){
+            document.getElementsByClassName('errors_tips')[0].style.display = 'none';
+            document.getElementsByClassName('success_tips')[0].style.display = 'none';
+        },false)
+
+    //    短信验证
+        num.addEventListener('blur',function (){
+            let pattern = /^\d{4}$/;
+            if(!pattern.test(this.value)){
+                document.getElementsByClassName('errors_tips')[1].style.display = 'inline-block';
+            }
+            else{
+                document.getElementsByClassName('success_tips')[1].style.display = 'inline-block';
+            }
+        },false);
+        num.addEventListener('focus',function (){
+            document.getElementsByClassName('errors_tips')[1].style.display = 'none';
+            document.getElementsByClassName('success_tips')[1].style.display = 'none';
+        },false)
+
+    //    密码验证
+        //密码安全等级
+        pwd1.addEventListener("blur",function (){
+            let pattern = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/;
+            if(!pattern.test(this.value)){
+                document.getElementsByClassName('errors_tips')[2].style.display = 'inline-block';
+            }
+            else{
+                document.getElementsByClassName('success_tips')[2].style.display = 'inline-block';
+                level.value = this.value.length / 5;
+            }
+        },false);
+        pwd1.addEventListener('focus',function (){
+            document.getElementsByClassName('errors_tips')[2].style.display = 'none';
+            document.getElementsByClassName('success_tips')[2].style.display = 'none';
+            level.value = 0
+        },false)
+        //密码是否一致验证
+        pwd2.addEventListener("blur",function (){
+            if (pwd1.value !== this.value){
+                document.getElementsByClassName('errors_tips')[3].style.display = 'inline-block';
+            }
+            else {
+                document.getElementsByClassName('success_tips')[3].style.display = 'inline-block';
+            }
+        },false);
+        pwd2.addEventListener('focus',function (){
+            document.getElementsByClassName('errors_tips')[3].style.display = 'none';
+            document.getElementsByClassName('success_tips')[3].style.display = 'none';
+        },false)
+    }
+</script>
+</html>

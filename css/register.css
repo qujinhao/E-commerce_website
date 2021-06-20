@@ -1,0 +1,114 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.style_red {
+    color: #c81623;
+}
+
+.register_logo {
+    border-bottom: 2px solid #af191b;
+}
+
+.registerarea {
+    height: 425px;
+    margin-top: 20px;
+    border: 1px solid #ececec;
+}
+
+.registerarea h3 {
+    height: 40px;
+    line-height: 40px;
+    background-color: #ececec;
+    border-bottom: 1px solid #ececec;
+}
+
+.registerarea h3 a:nth-child(1) {
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+
+.registerarea h3 a:nth-child(2) {
+    display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+.registerarea .reg_form {
+    width: 600px;
+    margin: 50px auto;
+}
+
+.reg_form form ul li {
+    /*display: inline-block;*/
+    margin-bottom: 20px;
+
+}
+
+.reg_form form ul li:nth-child(4) {
+    padding-left: 175px;
+}
+
+.reg_form form ul li label {
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+    font-size: 12px;
+}
+
+.reg_form form ul li .inp {
+    width: 240px;
+    height: 35px;
+    border: 2px solid #999;
+}
+
+.agree {
+    padding-left: 100px;
+}
+
+.agree input {
+    /*
+    vertical-align 属性设置元素的垂直对齐方式
+    */
+    vertical-align: middle;
+}
+
+.submit {
+    padding-left: 100px;
+}
+
+.submit input {
+    width: 200px;
+    height: 30px;
+    background-color: #c81622;
+}
+
+/*提示模块*/
+.errors_tips {
+    color: #d92d3b;
+    display: none;
+}
+
+.success_tips {
+    display: none;
+}
+
+
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.links {
+    margin-bottom: 15px;
+}
+
+.links a {
+    margin: 0 3px;
+}
+
+.copyright {
+    line-height: 20px;
+}

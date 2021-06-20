@@ -1,0 +1,93 @@
+/*声明字体图标*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+    url('../fonts/icomoon.woff?tomleg') format('woff'),
+    url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+/*列表模块*/
+.sk{
+    position: absolute;
+    top: 30px;
+    left: 185px;
+    border-left: 2px solid #b3181c;
+    padding: 2px 15px;
+}
+
+.sk_list ul li{
+    float: left;
+    line-height: 47px;
+    font-size: 18px;
+    width: 120px;
+    font-weight: bold;
+}
+.sk_icon ul li{
+    float: left;
+    line-height: 47px;
+    width: 90px;
+}
+.sk_icon ul li:last-child::after{
+    font-family:'icomoon';
+    content: "\e91e";
+    margin-left: 5px;
+}
+
+.sk_bd{
+    margin-top: 25px;
+}
+.sk_bd ul li{
+    float: left;
+    width: 290px;
+    height: 426px;
+    margin-left: 10px;
+}
+/*由于sk_bd没给定高度所以底部会受浮动影响，使用overflow进行清除
+溢出隐藏、清除浮动、解决外边距塌陷等等
+*/
+.sk_bd ul{
+    overflow: hidden;
+}
+.sk_bd ul li:hover{
+    border: 1px solid #c81623;
+}
+.sk_bd ul li p a:nth-child(-n+4){
+    padding: 0 15px;
+}
+.sk_bd ul li p a:nth-child(3){
+    font-size: 18px;
+    padding: 25px 15px;
+}
+/*重置进度条，让进度条默认样式为空*/
+.progress{
+    -webkit-appearance: none;
+    width: 135px;
+    height: 12px;
+    border: 1px solid #c81623;
+
+}
+/*更改进度条的已完成颜色*/
+.progress::-webkit-progress-value
+{
+    background-color:#c81623;
+}
+/*更改进度条的未完成颜色*/
+.progress::-webkit-progress-bar
+{
+    background-color:white;
+}
+.sk_bd ul li p a:last-child{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 10px;
+    width: 290px;
+    height: 50px;
+    background-color: #c81623;
+    color: white;
+    font-size: 20px;
+}
